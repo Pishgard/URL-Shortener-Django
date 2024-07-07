@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center class="list-center">
+      <h2>لیست لینک ها</h2>
+      <br />
+      <table>
+        <thead>
+          <tr>
+            <th>لینک</th>
+            <th>تعداد بازدید</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in list %}
+          <tr>
+            <td><a href="http://localhost:8000/{{ item.slug }}">{{ item.slug }}</a></td>
+            <td>{{ item.visit }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <br />
+      <a href="{% url 'shortener:index' %}">ساخت لینک</a>
+      <br />
+      <div id="response"></div>
+    </center>
+  </body>
+{% endblock content %}
